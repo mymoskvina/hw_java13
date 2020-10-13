@@ -64,5 +64,4 @@ public class ConditionerAdvanced {
     public void setOn(boolean on) {
         this.on = on;
     }
-
 }

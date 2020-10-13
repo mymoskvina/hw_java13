@@ -7,7 +7,7 @@ class ConditionerAdvancedTest {
     @Test
     public void shouldGetAndSet() {
         ConditionerAdvanced conditioner = new ConditionerAdvanced();
-        String expected = "Кондишн";
+        String expected = "Samsung";
         assertNull(conditioner.getName());
         conditioner.setName(expected);
         assertEquals(expected, conditioner.getName());
@@ -104,5 +104,4 @@ class ConditionerAdvancedTest {
         conditioner.increaseCurrentTemperature();
         assertEquals(expected, conditioner.getCurrentTemperature());
     }
-
 }
