@@ -66,20 +66,17 @@ class ConditionerAdvancedTest {
         ConditionerAdvanced conditioner = new ConditionerAdvanced();
         conditioner.setMaxTemperature(35);
         int currentTemperature = 36;
-        int expected = 0;
+        int expected = 35;
         conditioner.setCurrentTemperature(currentTemperature);
-        assertEquals(expected, conditioner.getCurrentTemperature());
+        assertEquals(expected, conditioner.getMaxTemperature());
     }
 
     @Test
     public void checkMinTemperature() {
         ConditionerAdvanced conditioner = new ConditionerAdvanced();
-        conditioner.setMaxTemperature(35);
         conditioner.setMinTemperature(17);
-        int currentTemperature = 15;
-        int expected = 0;
-        conditioner.setCurrentTemperature(currentTemperature);
-        assertEquals(expected, conditioner.getCurrentTemperature());
+        int expected = 17;
+        assertEquals(expected, conditioner.getMinTemperature());
     }
 
     @Test
@@ -93,15 +90,37 @@ class ConditionerAdvancedTest {
         conditioner.decreaseCurrentTemperature();
         assertEquals(expected, conditioner.getCurrentTemperature());
     }
-
     @Test
-    public void increaseCurrentTemperatureIfLess() {
+    public void decreaseCurrentTemperatureIfTempBelowMin() {
         ConditionerAdvanced conditioner = new ConditionerAdvanced();
+        conditioner.setMaxTemperature(35);
         conditioner.setMinTemperature(17);
         int currentTemperature = 15;
         int expected = 0;
         conditioner.setCurrentTemperature(currentTemperature);
-        conditioner.increaseCurrentTemperature();
+        conditioner.decreaseCurrentTemperature();
         assertEquals(expected, conditioner.getCurrentTemperature());
+    }
+
+    @Test
+    void ShouldGetAndSetOn() {
+        ConditionerAdvanced conditioner = new ConditionerAdvanced();
+        conditioner.setOn(false);
+        boolean expected = false;
+        assertEquals(expected, conditioner.isOn());
+    }
+    @Test
+    public void SetAndGetMinTemperature() {
+        ConditionerAdvanced conditioner = new ConditionerAdvanced();
+        conditioner.setMinTemperature(17);
+        int expected = 17;
+        assertEquals(expected, conditioner.getMinTemperature());
+    }
+    @Test
+    public void SetAndGetMaxTemperature() {
+        ConditionerAdvanced conditioner = new ConditionerAdvanced();
+        conditioner.setMaxTemperature(35);
+        int expected = 35;
+        assertEquals(expected, conditioner.getMaxTemperature());
     }
 }
