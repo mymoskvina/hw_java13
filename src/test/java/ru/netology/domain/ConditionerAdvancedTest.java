@@ -38,6 +38,18 @@ class ConditionerAdvancedTest {
     }
 
     @Test
+    public void decreaseCurrentTemperatureifMin() {
+        ConditionerAdvanced conditioner = new ConditionerAdvanced();
+        conditioner.setMaxTemperature(35);
+        conditioner.setMinTemperature(17);
+        int currentTemperature = 17;
+        int expected = 17;
+        conditioner.setCurrentTemperature(currentTemperature);
+        conditioner.decreaseCurrentTemperature();
+        assertEquals(expected, conditioner.getCurrentTemperature());
+    }
+
+    @Test
     public void increaseCurrentTemperature() {
         ConditionerAdvanced conditioner = new ConditionerAdvanced();
         conditioner.setMaxTemperature(35);
